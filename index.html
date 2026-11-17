@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Najed Zouari — Portfolio</title>
+<meta name="description" content="Esperto in Social Media Management, Design & Video Production. Trasformo le tue idee in contenuti che conquistano.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<style>
+:root{
+  --background:41 46% 87%;--foreground:214 32% 17%;--card:41 62% 92%;
+  --primary:42 95% 32%;--primary-foreground:41 62% 96%;
+  --secondary:42 38% 81%;--muted-foreground:38 18% 34%;--border:40 30% 76%;
+  --blue-deep:41 40% 83%;
+  --gradient-hero:radial-gradient(ellipse at top,hsl(42 60% 92%) 0%,hsl(41 46% 86%) 100%);
+  --gradient-spotlight:radial-gradient(circle at 50% 0%,hsl(44 100% 48% / .14) 0%,transparent 50%);
+  --gradient-card:linear-gradient(135deg,hsl(41 62% 93%) 0%,hsl(41 45% 89%) 100%);
+  --shadow-glow:0 0 50px hsl(44 100% 48% / .25);
+}
+html:not(.dark) .gold{background:linear-gradient(90deg,#B07D05,#9C6E04,#8A5F02);-webkit-background-clip:text;background-clip:text;color:transparent}
+.dark{
+  --background:222 47% 11%;--foreground:0 0% 98%;--card:222 47% 14%;
+  --primary:43 96% 56%;--primary-foreground:222 47% 11%;
+  --secondary:222 47% 20%;--muted-foreground:215 20% 65%;--border:222 30% 25%;
+  --blue-deep:222 47% 8%;
+  --gradient-hero:radial-gradient(ellipse at top,hsl(222 47% 20%) 0%,hsl(222 47% 8%) 100%);
+  --gradient-spotlight:radial-gradient(circle at 50% 0%,hsl(43 96% 56% / .15) 0%,transparent 50%);
+  --gradient-card:linear-gradient(135deg,hsl(222 47% 18%) 0%,hsl(222 47% 12%) 100%);
+  --shadow-glow:0 0 60px hsl(43 96% 56% / .2);
+}
+*{box-sizing:border-box;border-color:hsl(var(--border))}
+html{scroll-behavior:smooth}
+body{margin:0;background:hsl(var(--background));color:hsl(var(--foreground));font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+h1,h2,h3{font-family:'Bebas Neue',sans-serif;letter-spacing:.1em;font-weight:400;margin:0}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.container{max-width:1400px;margin:0 auto;padding:0 1rem}
+.gold{background:linear-gradient(90deg,#fbbf24,#facc15,#f59e0b);-webkit-background-clip:text;background-clip:text;color:transparent}
+.muted{color:hsl(var(--muted-foreground))}
+.icon{width:1.25rem;height:1.25rem;display:inline-block}
+section{position:relative;overflow:hidden}
+.sec{padding:6rem 0}
+.deep{background:hsl(var(--blue-deep))}
+.head{text-align:center;margin-bottom:4rem}
+.head h2{font-size:clamp(3rem,7vw,4.5rem);margin-bottom:1rem}
+.head p{font-size:1.125rem;max-width:36rem;margin:0 auto}
+.orb{position:absolute;border-radius:50%;filter:blur(64px);pointer-events:none}
+.card{background:var(--gradient-card);border:1px solid hsl(var(--border) / .5);border-radius:1rem;transition:transform .4s,border-color .5s}
+.card:hover{border-color:hsl(var(--primary) / .5);transform:translateY(-8px) scale(1.02)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border-radius:.5rem;font-weight:600;transition:all .3s;white-space:nowrap}
+.btn-hero{background:linear-gradient(90deg,#fbbf24,#facc15,#f59e0b);color:hsl(222 47% 8%);font-weight:700}
+.btn-hero:hover{box-shadow:var(--shadow-glow);transform:scale(1.05)}
+.btn-outline{border:2px solid hsl(var(--primary) / .5);color:hsl(var(--foreground))}
+.btn-outline:hover{border-color:hsl(var(--primary));background:hsl(var(--primary) / .1)}
+.xl{height:3.5rem;padding:0 2.5rem;font-size:1.125rem}
+.sm{height:2.25rem;padding:0 .9rem;font-size:.875rem}
+.pill{border-radius:999px;background:hsl(var(--secondary))}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease-out,transform .7s ease-out}
+.reveal.in{opacity:1;transform:none}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes spinr{to{transform:translate(-50%,-50%) rotate(-360deg)}}
+@keyframes floaty{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.1)}}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+@keyframes twinkle{0%,100%{transform:translateY(0);opacity:.3}50%{transform:translateY(-30px);opacity:.8}}
+@keyframes pop{from{transform:scale(0) rotate(-180deg)}to{transform:scale(1) rotate(0)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:all .3s}
+nav.scrolled{background:hsl(var(--background) / .9);backdrop-filter:blur(16px);border-bottom:1px solid hsl(var(--border) / .5);box-shadow:0 10px 15px -3px rgba(0,0,0,.2)}
+.navin{display:flex;align-items:center;justify-content:space-between;height:5rem}
+.nz{display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;border-radius:.75rem;background:linear-gradient(135deg,#fbbf24,#facc15,#f59e0b);color:hsl(222 47% 11%);font-family:'Bebas Neue';font-size:1.6rem;letter-spacing:.06em;padding-top:.15rem;box-shadow:var(--shadow-glow);transition:transform .3s}
+.nz:hover{transform:scale(1.08) rotate(-4deg)}
+.logo{font-family:'Bebas Neue';font-size:1.5rem;letter-spacing:.1em}
+.links{display:flex;align-items:center;gap:1.5rem}
+.links .nl{position:relative;font-size:.875rem;font-weight:500;color:hsl(var(--muted-foreground));padding:.75rem 0}
+.links .nl:hover{color:hsl(var(--foreground))}
+.links .nl.active{color:hsl(var(--primary))}
+.links .nl.active::after{content:"";position:absolute;left:0;right:0;bottom:.4rem;height:2px;background:hsl(var(--primary))}
+.ctrls{display:flex;align-items:center;gap:.75rem;margin-left:1rem}
+.round{width:2.5rem;height:2.5rem;border-radius:999px;background:hsl(var(--secondary));display:flex;align-items:center;justify-content:center;color:hsl(var(--muted-foreground))}
+.round:hover{color:hsl(var(--foreground))}
+.lang{position:relative}
+.langbtn{display:flex;align-items:center;gap:.4rem;padding:.5rem .75rem;border-radius:999px;background:hsl(var(--secondary));color:hsl(var(--muted-foreground));font-size:.875rem;font-weight:500;min-height:2.5rem}
+.langmenu{position:absolute;top:100%;right:0;margin-top:.5rem;background:hsl(var(--card));border:1px solid hsl(var(--border));border-radius:.75rem;overflow:hidden;box-shadow:0 10px 25px rgba(0,0,0,.3);display:none;z-index:60;min-width:7rem}
+.langmenu.open{display:block}
+.langmenu button{display:flex;align-items:center;gap:.75rem;width:100%;padding:.75rem 1rem;text-align:left;font-weight:500}
+.langmenu button:hover{background:hsl(var(--secondary))}
+.langmenu button.on{background:hsl(var(--primary) / .1);color:hsl(var(--primary))}
+.mob{display:none;align-items:center;gap:.5rem}
+.mobmenu{display:none;background:hsl(var(--background) / .95);backdrop-filter:blur(16px);border-bottom:1px solid hsl(var(--border))}
+.mobmenu.open{display:block}
+.mobmenu .container{padding-top:1rem;padding-bottom:1rem;display:flex;flex-direction:column;gap:.5rem}
+.mobmenu .nl{text-align:left;padding:.6rem 0;font-weight:500}
+@media (max-width:767px){.links{display:none}.mob{display:flex}.navin{height:4rem}}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--gradient-hero)}
+.spot{position:absolute;inset:0;background:var(--gradient-spotlight);animation:pulse 4s infinite;pointer-events:none}
+.ring{position:absolute;top:50%;left:50%;border-radius:50%;border:1px solid hsl(var(--primary) / .1);transform:translate(-50%,-50%)}
+.hero .inner{position:relative;z-index:1;text-align:center;padding:0 1rem}
+.badge{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;border-radius:999px;background:hsl(var(--secondary) / .5);border:1px solid hsl(var(--border));font-size:.875rem;color:hsl(var(--muted-foreground));margin-bottom:2rem}
+.hero h1{font-size:clamp(4.5rem,15vw,12rem);line-height:1;margin-bottom:.5rem}
+.hero .tagline{font-size:clamp(1.05rem,2vw,1.35rem);font-weight:500;color:hsl(var(--foreground));max-width:46rem;margin:0 auto 2.5rem!important;letter-spacing:.01em}
+.hero .highlight-line{margin:0 auto 3rem!important}
+.hero p{font-size:clamp(1.25rem,2.5vw,1.5rem);max-width:42rem;margin:0 auto 3rem}
+.hero p strong{color:hsl(var(--foreground));font-weight:500}
+.ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:hsl(var(--muted-foreground));font-size:.875rem;text-transform:uppercase;letter-spacing:.2em;z-index:1}
+.scroll:hover{color:hsl(var(--primary))}
+.scroll i,.scroll svg{animation:bob 1.5s infinite}
+
+/* grids */
+.grid{display:grid;gap:1.5rem;margin:0 auto}
+.g-services{max-width:80rem;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.svc{padding:2rem;position:relative}
+.svc .ic{width:3.5rem;height:3.5rem;border-radius:.75rem;background:hsl(var(--secondary));display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;color:hsl(var(--primary));transition:all .3s}
+.svc:hover .ic{background:hsl(var(--primary) / .2);transform:rotate(10deg)}
+.svc .ic svg{width:1.75rem;height:1.75rem}
+.svc h3{font-size:1.25rem;margin-bottom:.75rem}
+.svc p{font-size:.875rem;line-height:1.6;margin:0}
+.topline{position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,hsl(var(--primary)),transparent);animation:pulse 3s infinite}
+.gridbg{position:absolute;inset:0;opacity:.1;background-image:linear-gradient(hsl(var(--primary) / .1) 1px,transparent 1px),linear-gradient(90deg,hsl(var(--primary) / .1) 1px,transparent 1px);background-size:60px 60px}
+.filters{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;margin-bottom:3rem}
+.filters button{padding:.5rem 1.5rem;border-radius:999px;font-weight:500;background:hsl(var(--secondary) / .5);color:hsl(var(--muted-foreground));transition:all .3s;min-height:2.75rem}
+.filters button:hover{background:hsl(var(--secondary));color:hsl(var(--foreground))}
+.filters button.on{background:hsl(var(--primary));color:hsl(var(--primary-foreground));box-shadow:var(--shadow-glow)}
+.g-projects{max-width:64rem;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2rem}
+.proj{position:relative;border-radius:1rem;overflow:hidden;aspect-ratio:4/3;cursor:pointer}
+.proj .img{position:absolute;inset:0;transition:transform .6s;background-size:cover;background-position:center}
+.proj:hover .img{transform:scale(1.1)}
+.proj .ov{position:absolute;inset:0;background:linear-gradient(to top,hsl(var(--background)),hsl(var(--background) / .8),transparent);opacity:.7;transition:opacity .3s}
+.proj:hover .ov{opacity:1}
+.proj .ct{position:absolute;left:0;right:0;bottom:0;padding:1.5rem}
+#vid-intro{margin:0 0 1.5rem}
+.vi-line{text-align:center;color:hsl(var(--muted-foreground));margin:.25rem auto 0;max-width:40rem}
+.vi-line b{color:hsl(var(--primary))}
+.vi-stage{position:relative;height:96px;overflow:hidden;pointer-events:none}
+.vi-path{position:absolute;left:0;right:0;top:34px;border-top:2px dashed hsl(var(--primary)/.35);transform-origin:left;transform:scaleX(0)}
+.vi-drone{position:absolute;top:8px;left:-90px;width:72px;color:hsl(var(--primary));filter:drop-shadow(0 4px 10px hsl(var(--primary)/.35))}
+.vi-drone .pr{transform-box:fill-box;transform-origin:center;animation:vi-spin .12s linear infinite}
+.vi-cam{position:absolute;left:50%;top:52px;transform:translateX(-50%) scale(0);color:hsl(var(--primary));width:34px;height:34px}
+.vi-flash{position:absolute;left:50%;top:69px;width:120px;height:120px;margin:-60px 0 0 -60px;border-radius:50%;background:radial-gradient(#fff,rgba(255,255,255,.6) 30%,transparent 70%);opacity:0}
+.proj.reel .more p{display:none}
+.proj.reel .more{opacity:1;transform:none}
+.proj .play{position:absolute;top:27%;left:50%;transform:translate(-50%,-50%);z-index:1;width:4rem;height:4rem;border-radius:50%;display:flex;align-items:center;justify-content:center;background:hsl(var(--background)/.35);border:2px solid #fff;color:#fff;backdrop-filter:blur(4px);transition:transform .3s,background .3s}
+.proj .play svg{width:1.6rem;height:1.6rem;margin-left:3px;fill:#fff}
+.proj:hover .play{transform:translate(-50%,-50%) scale(1.12);background:hsl(var(--primary));border-color:hsl(var(--primary))}
+.vi-stage.go .vi-path{animation:vi-path 1.6s ease-out forwards}
+.vi-stage.go .vi-drone{animation:vi-fly 2.6s cubic-bezier(.45,.05,.35,1) forwards,vi-bob .6s ease-in-out infinite}
+.vi-stage.go .vi-cam{animation:vi-cam .5s .9s cubic-bezier(.3,1.6,.5,1) forwards}
+.vi-stage.go .vi-flash{animation:vi-flash .35s 1.25s ease-out}
+.vi-stage.done .vi-path{transform:scaleX(1)}.vi-stage.done .vi-drone{left:calc(100% - 80px);animation:vi-bob 1.4s ease-in-out infinite}.vi-stage.done .vi-cam{transform:translateX(-50%) scale(1)}
+@keyframes vi-spin{to{transform:rotate(360deg)}}
+@keyframes vi-bob{50%{margin-top:5px}}
+@keyframes vi-path{to{transform:scaleX(1)}}
+@keyframes vi-fly{0%{left:-90px}45%{left:calc(50% - 36px)}60%{left:calc(50% - 36px)}100%{left:calc(100% - 80px)}}
+@keyframes vi-cam{to{transform:translateX(-50%) scale(1)}}
+@keyframes vi-flash{0%{opacity:.75}100%{opacity:0}}
+.vids-in .proj{opacity:0;animation:vi-card .6s ease-out forwards}
+@keyframes vi-card{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.roles{display:flex;flex-wrap:wrap;gap:.3rem;margin:-.25rem 0 .6rem}
+.roles span{display:inline-flex;align-items:center;gap:.25rem;font-size:.68rem;font-weight:600;padding:.15rem .45rem;border-radius:999px;background:hsl(var(--background)/.75);border:1px solid hsl(var(--primary)/.5);color:#fff;backdrop-filter:blur(4px)}
+.roles svg{width:.85rem;height:.85rem;color:hsl(var(--primary))}
+@media (prefers-reduced-motion:reduce){.vi-stage{display:none}.vids-in .proj{opacity:1;animation:none}}
+.tag{display:inline-block;padding:.25rem .75rem;border-radius:999px;background:hsl(var(--primary) / .2);color:hsl(var(--primary));font-size:.875rem;font-weight:500;margin-bottom:.75rem}
+.proj h3{font-size:clamp(1.5rem,3vw,1.875rem);margin-bottom:.5rem}
+.proj .more{opacity:0;transform:translateY(10px);transition:all .3s}
+.proj:hover .more{opacity:1;transform:none}
+.proj .more p{margin:0 0 .75rem}
+.proj .more div{display:flex;justify-content:space-between;align-items:center;color:hsl(var(--primary));font-weight:700}
+.proj .dom{position:absolute;top:38%;left:0;right:0;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;gap:.6rem;font-family:'Bebas Neue';font-size:clamp(1.75rem,4vw,2.5rem);letter-spacing:.06em;color:#fff;z-index:1;opacity:.9}
+.proj .bd{position:absolute;inset:0;border:2px solid hsl(var(--primary));border-radius:1rem;opacity:0;transition:opacity .3s;pointer-events:none}
+.proj:hover .bd{opacity:1}
+.g-acc{max-width:72rem;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.acc{padding:1.5rem}
+.acc .top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem}
+.acc .av{width:3rem;height:3rem;border-radius:.75rem;display:flex;align-items:center;justify-content:center;color:#fff}
+.acc .avi{width:3.5rem;height:3.5rem;border-radius:50%;object-fit:cover;background:#fff;box-shadow:0 0 0 2px hsl(var(--primary)),0 0 0 4px hsl(var(--background))}
+.acc .cat{padding:.25rem .75rem;border-radius:999px;background:hsl(var(--secondary));color:hsl(var(--muted-foreground));font-size:.75rem;font-weight:500}
+.acc h3{font-size:1.25rem;margin-bottom:.75rem}
+.acc .pl{display:flex;gap:.5rem;margin-bottom:1rem}
+.acc .pl a{width:2.75rem;height:2.75rem;border-radius:999px;background:hsl(var(--secondary));display:flex;align-items:center;justify-content:center;color:hsl(var(--muted-foreground));transition:all .3s}
+.acc .pl a:hover{color:hsl(var(--primary));background:hsl(var(--primary) / .1)}
+.acc .pl svg{width:1rem;height:1rem}
+.acc .st{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.acc .st>div{text-align:center;padding:.75rem;border-radius:.75rem;background:hsl(var(--secondary) / .5)}
+.acc .st svg{width:1rem;height:1rem}
+.acc .st b{display:block;font-size:1.25rem}
+.acc .st small{font-size:.75rem;color:hsl(var(--muted-foreground))}
+.green{color:#22c55e}
+.dots{position:absolute;inset:0;opacity:.06;background-image:radial-gradient(circle at 2px 2px,currentColor 1px,transparent 1px);background-size:40px 40px}
+.g-ind{max-width:72rem;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.ind{padding:2rem;text-align:center;height:100%}
+.ind .ic{width:4rem;height:4rem;margin:0 auto 1.5rem;border-radius:1rem;display:flex;align-items:center;justify-content:center;color:#fff}
+.ind .ic svg{width:2rem;height:2rem}
+.ind h3{font-size:1.25rem;color:hsl(var(--primary));margin-bottom:1rem}
+.ind ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.5rem;font-size:.875rem}
+.stats{padding:5rem 0 6rem;border-top:1px solid hsl(var(--primary) / .25);border-bottom:1px solid hsl(var(--primary) / .25)}
+.stats .stat{background:var(--gradient-card);border:1px solid hsl(var(--primary) / .35);border-radius:1.25rem;padding:2.25rem 1.5rem;box-shadow:var(--shadow-glow);transition:transform .4s}
+.stats .stat:hover{transform:translateY(-6px)}
+.g-stats{max-width:68rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem}
+.stat{text-align:center}
+.stat .ic{width:4rem;height:4rem;margin:0 auto 1.5rem;border-radius:1rem;background:hsl(var(--secondary) / .5);display:flex;align-items:center;justify-content:center;color:hsl(var(--primary))}
+.stat .ic svg{width:2rem;height:2rem}
+.num{font-family:'Bebas Neue';font-size:clamp(4.5rem,10vw,8rem);line-height:1;display:block;margin-bottom:1rem}
+.stars{display:flex;justify-content:center;gap:.5rem;margin-bottom:1rem;color:hsl(var(--primary))}
+.stars svg{width:2rem;height:2rem;fill:currentColor;transform:scale(0)}
+.in .stars svg{animation:pop .6s forwards}
+.flags{display:flex;justify-content:center;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem;font-size:2.25rem}
+.flags span{transition:transform .3s;display:inline-flex}
+.stats .feat{grid-column:1/-1;padding:2.5rem 1.5rem 2rem}
+.featnums{display:flex;align-items:center;justify-content:center;gap:clamp(1rem,4vw,3rem);flex-wrap:wrap}
+.featnums p{margin:.25rem 0 0!important}
+.from{font-family:'Bebas Neue';font-size:clamp(1.75rem,4vw,2.75rem);letter-spacing:.1em;color:hsl(var(--muted-foreground))}
+.feat .flags{margin:0;gap:.6rem;max-width:22rem;justify-content:center}
+.feat .flags span{display:inline-flex}
+.feat .flags svg{width:36px;height:24px}
+.g-stats{max-width:60rem;grid-template-columns:1fr;gap:1.5rem}
+
+.flags svg{border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.35)}
+.multi{font-family:'Bebas Neue';font-size:1.75rem;letter-spacing:.08em;color:hsl(var(--primary));margin:0 0 .75rem!important;text-transform:none!important}
+.langs{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem}
+.langs span{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .9rem;border-radius:999px;background:hsl(var(--secondary));border:1px solid hsl(var(--primary) / .3);font-size:.95rem;font-weight:500}
+.flags span:hover{transform:scale(1.3) translateY(-5px)}
+.stat p{font-size:1.25rem;font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin:1rem 0 0}
+.particle{position:absolute;width:4px;height:4px;border-radius:50%;background:hsl(var(--primary) / .3);animation:twinkle 4s infinite}
+.contact .inner{max-width:48rem;margin:0 auto;text-align:center}
+.contact h2{font-size:clamp(3rem,7vw,4.5rem);margin-bottom:1.5rem}
+.contact .lead{font-size:1.25rem;margin:0 0 3rem}
+.socials{display:flex;justify-content:center;gap:1rem;margin-top:4rem}
+.socials a{width:3.5rem;height:3.5rem;border-radius:999px;background:hsl(var(--secondary));display:flex;align-items:center;justify-content:center;color:hsl(var(--muted-foreground));transition:all .3s}
+.socials a:hover{color:hsl(var(--primary));background:hsl(var(--primary) / .1);transform:translateY(-5px) scale(1.15)}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(5,10,25,.92);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:4.5rem 1rem 1.5rem;gap:1rem}
+.lb.open{display:flex}
+.lb img{max-width:min(1100px,calc(100vw - 9rem));max-height:calc(100vh - 7rem);border-radius:1rem;object-fit:contain;box-shadow:var(--shadow-glow)}
+.lbbar{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;color:#fff}
+.lbt{font-family:'Bebas Neue';font-size:1.5rem;letter-spacing:.08em;color:#facc15;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lbd{display:inline-flex;align-items:center;justify-content:center;min-height:2.5rem;padding:0 1rem;border-radius:999px;background:linear-gradient(90deg,#fbbf24,#facc15,#f59e0b);color:hsl(222 47% 8%);font-size:.875rem;font-weight:700;text-decoration:none;white-space:nowrap}
+.lb .round{flex-shrink:0;width:2.75rem;height:2.75rem}
+@media (max-width:640px){.lb{flex-wrap:wrap;align-content:center}.lb img{max-width:100%;order:-1;flex-basis:100%}.lbbar{flex-wrap:wrap}.lbd{order:5;flex-basis:100%}}
+footer{padding:2rem 0;background:hsl(var(--blue-deep));border-top:1px solid hsl(var(--border) / .5)}
+footer .container{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between}
+footer .logo{font-size:1.5rem}
+
+
+.g-stats{max-width:72rem!important;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr))!important;gap:1.25rem!important}
+.hero-stats .stat.row{display:flex;align-items:center;gap:1.25rem;text-align:left;padding:1.25rem 1.5rem}
+.hero-stats .stat.row .num{font-size:clamp(3.5rem,7vw,5rem);margin:0;flex-shrink:0}
+.hero-stats .stat.row .lbl{display:flex;flex-direction:column;gap:.6rem;min-width:0}
+.hero-stats .stat.row .lbl p{margin:0!important;font-size:.95rem;letter-spacing:.12em}
+.hero-stats .stat.row .flags{margin:0;gap:.45rem;justify-content:flex-start;flex-wrap:wrap}
+.hero-stats .stat.row .flags svg{width:30px;height:20px}
+.hero-stats .stat.row .langs{justify-content:flex-start;gap:.4rem}
+.hero-stats .stat.row .langs span{padding:.25rem .65rem;font-size:.85rem}
+
+.hero{padding:6rem 0 7rem}
+.hero-stats{margin:3rem auto 0;max-width:62rem}
+.hero-stats .stat{background:hsl(var(--card) / .6);backdrop-filter:blur(6px);border:1px solid hsl(var(--primary) / .35);border-radius:1.25rem;box-shadow:var(--shadow-glow)}
+.hero .tagline{opacity:.7}
+
+/* ---- Hero hierarchy (UX pass) ---- */
+.hero{min-height:100svh;padding:6.5rem 0 5.5rem}
+.hero .inner{max-width:56rem;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+.hero h1{font-size:clamp(3.25rem,10vw,7.5rem);letter-spacing:.06em;margin:0 0 .75rem}
+.hero .tagline{font-size:clamp(1rem,1.7vw,1.2rem);line-height:1.5;max-width:38rem;opacity:.72;margin:0 auto 1.25rem!important}
+.hero .highlight-line{font-size:clamp(.95rem,1.5vw,1.05rem);margin:0 auto 2rem!important;max-width:34rem}
+.hero .highlight-line strong{font-weight:500;color:hsl(var(--muted-foreground))}
+.hero .ctas .btn.xl{height:3rem;padding:0 1.75rem;font-size:1rem}
+.hero-stats{margin:2.75rem auto 0;width:100%;max-width:46rem}
+.hero-stats .g-stats{grid-template-columns:1fr 1fr!important;gap:0!important;border:1px solid hsl(var(--primary) / .3);border-radius:1rem;background:hsl(var(--card) / .55);backdrop-filter:blur(6px);overflow:hidden}
+.hero-stats .stat{background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important}
+.hero-stats .stat.row{padding:1rem 1.25rem!important;gap:.9rem!important}
+.hero-stats .stat.row+.stat.row{border-left:1px solid hsl(var(--primary) / .2)!important}
+.hero-stats .stat.row .num{font-size:clamp(2.25rem,4.5vw,3rem)!important;line-height:1}
+.hero-stats .stat.row .lbl{gap:.45rem!important}
+.hero-stats .stat.row .lbl p{font-size:.72rem!important;letter-spacing:.14em;text-transform:uppercase}
+.hero-stats .stat.row .flags{gap:.3rem!important}
+.hero-stats .stat.row .flags svg{width:22px!important;height:15px!important}
+.hero-stats .stat.row .langs{gap:.3rem!important}
+.hero-stats .stat.row .langs span{padding:.15rem .5rem!important;font-size:.72rem!important;gap:.3rem!important}
+.hero-stats .stat.row .langs svg{width:14px!important;height:10px!important}
+.hero .scroll{bottom:1.25rem;font-size:.7rem}
+@media (max-width:640px){.hero-stats .g-stats{grid-template-columns:1fr!important}.hero-stats .stat.row+.stat.row{border-left:0!important;border-top:1px solid hsl(var(--primary) / .2)!important}.hero .scroll{display:none}}
+@media (max-height:760px){.hero .scroll{display:none}}
+
+/* NZ → NAJED ZOUARI */
+.nz-anim{width:auto;min-width:2.75rem;padding:.15rem .7rem 0;white-space:nowrap;overflow:hidden;transition:padding .45s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.nz-anim:hover{transform:none}
+.nz-anim .r{display:inline-block;max-width:0;opacity:0;overflow:hidden;vertical-align:bottom;transition:max-width .5s cubic-bezier(.2,.8,.2,1),opacity .35s .05s}
+.nz-anim .gap{display:inline-block;width:0;transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.nz-anim:hover,.nz-anim:focus-visible,.nz-anim.play{padding:.15rem 1rem 0}
+.nz-anim:hover .r,.nz-anim:focus-visible .r,.nz-anim.play .r{max-width:6ch;opacity:1}
+.nz-anim:hover .gap,.nz-anim:focus-visible .gap,.nz-anim.play .gap{width:.45em}
+.nz-anim:hover .r:nth-of-type(4),.nz-anim.play .r:nth-of-type(4){transition-delay:.08s}
+
+
+.svc{display:flex;flex-direction:column;align-items:flex-start;text-align:left;width:100%;cursor:pointer;font:inherit;color:inherit}
+.svc p{flex:1}
+.svc-go{display:inline-flex;align-items:center;gap:.4rem;margin-top:1.25rem;font-size:.85rem;font-weight:600;color:hsl(var(--primary))}
+.svc-go .icon{width:1rem;height:1rem;transition:transform .3s}
+.svc:hover .svc-go .icon,.svc:focus-visible .svc-go .icon{transform:translateX(4px)}
+.svc:focus-visible{outline:2px solid hsl(var(--primary));outline-offset:3px}
+
+.hero-stats{max-width:64rem!important}
+.hero-stats .g-stats{grid-template-columns:1.3fr 1.15fr .9fr!important}
+.pressstat{text-decoration:none;color:inherit;cursor:pointer;transition:background .3s}.pressstat:hover{background:hsl(var(--primary)/.08)}
+.pf{display:flex;gap:.4rem;margin-top:.35rem}
+.proj .pressb{position:relative;z-index:2;margin-bottom:.6rem;display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .7rem;border-radius:999px;background:linear-gradient(90deg,#fbbf24,#facc15,#f59e0b);color:hsl(222 47% 8%);font-size:.78rem;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.proj .pressb svg:first-child{width:1rem;height:1rem}
+.lbpr{position:absolute;left:50%;bottom:.9rem;transform:translateX(-50%);display:flex;align-items:center;gap:.45rem;max-width:calc(100vw - 2rem);overflow-x:auto;padding:.45rem .6rem;border-radius:999px;background:hsl(var(--card)/.85);border:1px solid hsl(var(--primary)/.35);white-space:nowrap;scrollbar-width:none}
+.lbpr:empty{display:none}
+.lbpr a,.lbpt,.lbpm{display:inline-flex;align-items:center;gap:.35rem;font-size:.8rem;color:#fff;text-decoration:none;padding:.25rem .55rem;border-radius:999px}
+.lbpr a{background:hsl(var(--secondary)/.7)}.lbpr a:hover{background:hsl(var(--primary));color:hsl(222 47% 8%)}
+.lbpt{color:#facc15;font-weight:700}.lbpt svg{width:1rem;height:1rem}.lbpm{color:hsl(var(--muted-foreground))}
+.lb.haspress img{max-height:calc(100vh - 10rem)}
+@media (max-width:900px){.hero-stats .g-stats{grid-template-columns:1fr 1fr!important}.pressstat{grid-column:1/-1;border-left:0!important;border-top:1px solid hsl(var(--primary)/.2)}}
+@media (max-width:640px){.hero-stats .g-stats{grid-template-columns:1fr!important}.lbpr{position:static;transform:none;order:6;flex-basis:100%;border-radius:1rem}}
+
+.training{background:linear-gradient(180deg,transparent,hsl(var(--secondary)/.25),transparent)}
+#s-training.sec{padding-top:4rem;padding-bottom:4rem}#s-training .head h2{font-size:clamp(2rem,5vw,3.25rem)}
+.tr-stats{display:grid;grid-template-columns:repeat(2,1fr);max-width:54rem;margin:0 auto 3rem;border:1px solid hsl(var(--primary)/.3);border-radius:1rem;background:hsl(var(--card)/.55);overflow:hidden}
+.tr-stats>div{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;padding:1.5rem 1rem;text-align:center}
+.tr-stats>div+div{border-left:1px solid hsl(var(--primary)/.2)}
+.tr-stats .tnum{font-family:'Bebas Neue';font-size:clamp(2.5rem,5vw,3.5rem);line-height:1}
+.tr-stats small{color:hsl(var(--muted-foreground));text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;font-weight:600}
+.tot{display:inline-flex;align-items:center;gap:.4rem;font-family:'Bebas Neue';font-size:clamp(2rem,4vw,2.8rem);line-height:1;color:#facc15}.tot svg{width:2rem;height:2rem}
+.tr-h{text-align:center;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:hsl(var(--muted-foreground));margin:0 0 1.25rem;font-weight:600}
+.g-train{max-width:72rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.25rem;margin-bottom:3rem}
+.trc{padding:1.5rem;text-align:left}
+.trc .ic{width:3rem;height:3rem;border-radius:.75rem;display:flex;align-items:center;justify-content:center;background:hsl(var(--primary)/.15);color:hsl(var(--primary));margin-bottom:1rem}
+.trc h4{margin:0 0 .4rem;font-size:1.05rem}.trc p{margin:0;font-size:.9rem}
+.tr-formats{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem}
+.tr-formats span{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.1rem;border-radius:999px;border:1px solid hsl(var(--primary)/.4);background:hsl(var(--card)/.6);font-weight:500;font-size:.9rem}
+.tr-formats svg{width:1.1rem;height:1.1rem;color:hsl(var(--primary))}
+@media (max-width:640px){.tr-stats{grid-template-columns:1fr}.tr-stats>div+div{border-left:0;border-top:1px solid hsl(var(--primary)/.2)}}
+
+.tr-gal{max-width:72rem;margin-left:auto;margin-right:auto;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(150px,1fr);gap:.75rem;overflow-x:auto;margin-top:2.5rem;padding-bottom:.5rem;scrollbar-width:thin}
+.trp{position:relative;padding:0;border:1px solid hsl(var(--primary)/.25);border-radius:.85rem;overflow:hidden;cursor:pointer;background:none;aspect-ratio:3/4}
+.trp img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.trp span{position:absolute;left:0;right:0;bottom:0;padding:1.6rem .6rem .55rem;font-size:.68rem;line-height:1.3;color:#fff;text-align:left;background:linear-gradient(transparent,rgba(5,10,25,.88))}
+.trp:hover img{transform:scale(1.06)}.trp:hover{border-color:hsl(var(--primary))}
+@media (max-width:640px){.tr-gal{grid-auto-columns:42%}}
+.trp .trli{position:absolute;top:.5rem;right:.5rem;width:1.7rem;height:1.7rem;padding:.3rem;border-radius:.4rem;background:#0a66c2;color:#fff;z-index:1}
+@media (min-width:900px){.tr-gal{grid-auto-flow:row;grid-template-columns:repeat(5,1fr);overflow:visible}}
+.trp .trn{position:absolute;top:.5rem;right:.5rem;display:inline-flex;align-items:center;gap:.25rem;padding:.2rem .45rem;border-radius:999px;background:rgba(5,10,25,.75);color:#fff;font-size:.7rem;z-index:1}.trp .trn svg{width:.85rem;height:.85rem}
+
+/* ===== compact layout ===== */
+.sec{padding:4.5rem 0}
+.head{margin-bottom:2.75rem}
+.head h2{font-size:clamp(2.4rem,5vw,3.6rem)}
+.contact h2{font-size:clamp(2.4rem,5vw,3.6rem)}
+.proj h3{font-size:clamp(1.25rem,2.2vw,1.55rem);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.g-acc{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1rem}
+.acc{padding:1.1rem}
+.acc h3{font-size:1.05rem;margin-bottom:.5rem;overflow-wrap:anywhere}
+.acc .pl{margin-bottom:.75rem}.acc .pl a{width:2.25rem;height:2.25rem}
+.acc .st{gap:.5rem}.acc .st>div{padding:.5rem}.acc .st b{font-size:1.05rem}
+.svc{padding:1.5rem}
+.ind{padding:1.25rem}.ind .ic{width:3rem;height:3rem;margin-bottom:.9rem}.ind .ic svg{width:1.5rem;height:1.5rem}.ind h3{font-size:1rem;margin-bottom:.5rem}.ind ul{font-size:.8rem;gap:.25rem}
+.g-ind{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))!important;gap:1rem}
+.fab{position:fixed;right:1rem;bottom:1rem;z-index:70;display:none;align-items:center;gap:.4rem;padding:.7rem 1rem;border-radius:999px;background:linear-gradient(90deg,#fbbf24,#facc15,#f59e0b);color:hsl(222 47% 8%);font-weight:700;font-size:.85rem;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.4);opacity:0;transform:translateY(12px);transition:opacity .3s,transform .3s;pointer-events:none}
+.fab svg{width:1.1rem;height:1.1rem}
+.fab.show{opacity:1;transform:none;pointer-events:auto}
+@media (max-width:767px){
+ .fab{display:inline-flex}
+ .sec{padding:3rem 0}
+ .head{margin-bottom:1.75rem}
+ .head h2,.contact h2{font-size:2.1rem;line-height:1.05;margin-bottom:.5rem}
+ .head p{font-size:.9rem}
+ #s-training .head h2{font-size:1.9rem}
+ /* services 2 per row */
+ .g-services{grid-template-columns:1fr 1fr!important;gap:.75rem}
+ .svc{padding:1rem}.svc .ic{width:2.5rem;height:2.5rem;margin-bottom:.75rem}.svc .ic svg{width:1.25rem;height:1.25rem}
+ .svc h3{font-size:.85rem;line-height:1.2;margin-bottom:.25rem}.svc p{display:none}.svc-go{margin-top:.6rem;font-size:.72rem}
+ /* accounts 2 per row */
+ .g-acc{grid-template-columns:1fr 1fr!important;gap:.6rem}
+ .acc{padding:.8rem}
+ .acc .top{margin-bottom:.55rem;align-items:center}
+ .acc .avi,.acc .av{width:2.6rem;height:2.6rem}
+ .acc .cat{font-size:.6rem;padding:.15rem .45rem;max-width:58%;text-align:right;line-height:1.2}
+ .acc h3{font-size:.8rem;margin-bottom:.45rem}
+ .acc .pl{gap:.3rem;margin-bottom:.55rem}.acc .pl a{width:1.75rem;height:1.75rem}.acc .pl svg{width:.8rem;height:.8rem}
+ .acc .st{gap:.35rem}.acc .st>div{padding:.35rem .2rem;border-radius:.5rem}.acc .st svg{display:none}.acc .st b{font-size:.85rem}.acc .st small{font-size:.58rem}
+ /* projects: swipe row */
+ .g-projects{grid-template-columns:none!important;grid-auto-flow:column;grid-auto-columns:84%;gap:.75rem;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.5rem;scrollbar-width:none}
+ .g-projects::-webkit-scrollbar{display:none}
+ .proj{scroll-snap-align:start}
+ .proj .ct{padding:1rem}.proj h3{font-size:1.2rem}
+ .filters button{padding:.45rem .9rem;font-size:.8rem}
+ /* experience 2 per row */
+ .g-ind{grid-template-columns:1fr 1fr!important;gap:.6rem}
+ .ind{padding:.9rem}.ind .ic{width:2.25rem;height:2.25rem;margin-bottom:.5rem;border-radius:.6rem}.ind .ic svg{width:1.1rem;height:1.1rem}.ind h3{font-size:.8rem;margin-bottom:.3rem}.ind ul{font-size:.68rem;gap:.1rem}
+ /* training */
+ .tr-stats{grid-template-columns:repeat(2,1fr)!important;margin-bottom:1.75rem}
+ .tr-stats>div{padding:.9rem .3rem}.tr-stats>div+div{border-left:1px solid hsl(var(--primary)/.2)!important;border-top:0!important}
+ .tr-stats .tnum{font-size:1.9rem}.tot{font-size:1.6rem}.tot svg{width:1.2rem;height:1.2rem}.tr-stats small{font-size:.55rem;letter-spacing:.06em}
+ .tr-h{font-size:.7rem;margin-bottom:.75rem}
+ .g-train{grid-template-columns:1fr 1fr!important;gap:.6rem;margin-bottom:1.75rem}
+ .trc{padding:.85rem}.trc .ic{width:2.25rem;height:2.25rem;margin-bottom:.5rem}.trc h4{font-size:.8rem}.trc p{font-size:.68rem}
+ .tr-formats{gap:.4rem}.tr-formats span{padding:.35rem .7rem;font-size:.72rem}
+ .tr-gal{margin-top:1.75rem;grid-auto-columns:40%}
+ /* hero stats compact */
+ .hero-stats{margin-top:1.75rem!important}
+ .contact .sec,.contact{padding-bottom:5rem}
+}
+html:not(.dark) .tot{color:#9C6E04}html:not(.dark) .lbpt{color:#9C6E04}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="container">
+    <div class="navin">
+      <a href="#s-top" class="nz nz-anim" aria-label="Najed Zouari — home"><span class="i">N</span><span class="r">AJED</span><span class="gap"></span><span class="i">Z</span><span class="r">OUARI</span></a>
+      <div class="links">
+        <a class="nl" href="#s-services" data-k="nav.services"></a>
+        <a class="nl" href="#s-projects" data-k="nav.projects"></a>
+        <a class="nl" href="#s-experience" data-k="nav.experience"></a>
+        <a class="nl" href="#s-contact" data-k="nav.contact"></a>
+        <div class="ctrls">
+          <div class="lang"></div>
+          <button class="round theme" aria-label="Toggle theme"></button>
+          <a href="Najed_Zouari_CV.pdf" target="_blank" rel="noopener" class="btn btn-hero sm"><i data-lucide="download" class="icon" style="width:1rem;height:1rem"></i><span data-k="nav.start"></span></a>
+        </div>
+      </div>
+      <div class="mob">
+        <div class="lang"></div>
+        <button class="round theme" aria-label="Toggle theme"></button>
+        <button class="round" id="burger" aria-label="Menu" aria-expanded="false"><i data-lucide="menu"></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="mobmenu" id="mobmenu">
+    <div class="container">
+      <a class="nl" href="#s-services" data-k="nav.services"></a>
+      <a class="nl" href="#s-accounts" data-k="nav.accounts"></a>
+      <a class="nl" href="#s-projects" data-k="nav.projects"></a>
+      <a class="nl" href="#s-experience" data-k="nav.experience"></a>
+      <a class="nl" href="#s-training" data-k="nav.training"></a>
+      <a class="nl" href="#s-contact" data-k="nav.contact"></a>
+      <a href="Najed_Zouari_CV.pdf" target="_blank" rel="noopener" class="btn btn-hero xl" style="width:100%"><i data-lucide="download" class="icon"></i><span data-k="nav.start"></span></a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="s-top">
+  <div class="spot"></div>
+  <div class="orb" style="top:5rem;left:2.5rem;width:16rem;height:16rem;background:hsl(var(--primary) / .1);animation:floaty 6s infinite"></div>
+  <div class="orb" style="bottom:5rem;right:2.5rem;width:24rem;height:24rem;background:hsl(var(--primary) / .05);animation:floaty 8s 1s infinite"></div>
+  <div class="ring" style="width:800px;height:800px;animation:spin 60s linear infinite"></div>
+  <div class="ring" style="width:600px;height:600px;border-color:hsl(var(--primary) / .05);animation:spinr 45s linear infinite"></div>
+  <div class="inner">
+    <h1 class="gold">NAJED ZOUARI</h1>
+    <p class="tagline" data-k="hero.subtitle"></p>
+    <p class="muted highlight-line"><strong data-k="hero.highlight"></strong></p>
+    <div class="ctas">
+      <a href="#s-services" class="btn btn-hero xl" data-k="hero.cta1"></a>
+      <a href="#s-contact" class="btn btn-outline xl" data-k="hero.cta2"></a>
+    </div>
+    <div class="hero-stats">
+<div class="grid g-stats" id="stats-grid">
+      <div class="stat row reveal">
+        <span class="num gold" data-to="20" data-suf="+">0</span>
+        <div class="lbl"><p class="muted"><span data-k="stats.clients"></span> <span data-k="stats.from"></span></p><div class="flags"><span title="Türkiye"><svg viewBox="0 0 30 20" width="36" height="24" role="img" aria-label="Türkiye"><rect width="30" height="20" fill="#E30A17"/><circle cx="11" cy="10" r="5" fill="#fff"/><circle cx="12.25" cy="10" r="4" fill="#E30A17"/><polygon fill="#fff" points="16.6,10 19.6,9 17.75,11.6 17.75,8.4 19.6,11"/></svg></span><span title="Luxembourg"><svg viewBox="0 0 30 20" width="36" height="24" role="img" aria-label="Luxembourg"><rect width="30" height="20" fill="#00A1DE"/><rect width="30" height="13.33" fill="#fff"/><rect width="30" height="6.67" fill="#ED2939"/></svg></span><span title="Belgique"><svg viewBox="0 0 30 20" width="36" height="24" role="img" aria-label="Belgique"><rect width="30" height="20" fill="#EF3340"/><rect width="20" height="20" fill="#FDDA24"/><rect width="10" height="20" fill="#000"/></svg></span><span title="Italia"><svg viewBox="0 0 30 20" width="36" height="24" role="img" aria-label="Italia"><rect width="30" height="20" fill="#CE2B37"/><rect width="20" height="20" fill="#fff"/><rect width="10" height="20" fill="#009246"/></svg></span><span title="France"><svg viewBox="0 0 30 20" width="36" height="24" role="img" aria-label="France"><rect width="30" height="20" fill="#ED2939"/><rect width="20" height="20" fill="#fff"/><rect width="10" height="20" fill="#002395"/></svg></span><span title="UAE"><svg viewBox="0 0 30 20" width="36" height="24" role="img" aria-label="UAE"><rect width="30" height="20" fill="#000"/><rect width="30" height="13.33" fill="#fff"/><rect width="30" height="6.67" fill="#00732F"/><rect width="7.5" height="20" fill="#FF0000"/></svg></span><span title="Tunisie"><svg viewBox="0 0 30 20" width="36" height="24" role="img" aria-label="Tunisie"><rect width="30" height="20" fill="#E70013"/><circle cx="15" cy="10" r="5" fill="#fff"/><circle cx="15" cy="10" r="3.75" fill="#E70013"/><circle cx="16" cy="10" r="3" fill="#fff"/><polygon fill="#E70013" points="14.2,10 17.4,8.9 15.4,11.6 15.4,8.4 17.4,11.1"/></svg></span></div></div>
+      </div>
+      <div class="stat row reveal">
+        <span class="num gold" data-to="4" data-suf="">0</span>
+        <div class="lbl"><p class="muted" data-k="stats.stars"></p><div class="langs"><span lang="ar" data-f="ar">العربية</span><span lang="fr" data-f="fr">Français</span><span lang="en" data-f="en">English</span><span lang="it" data-f="it">Italiano</span></div></div>
+      </div>
+      <a class="stat row reveal pressstat" href="#s-projects" data-press="1">
+        <span class="num gold" data-to="30" data-suf="+">0</span>
+        <div class="lbl"><p class="muted" data-k="stats.press"></p><div class="flags pf"></div></div>
+      </a>
+    </div>
+    </div>
+  </div>
+  <a href="#s-services" class="scroll"><span data-k="hero.scroll"></span><i data-lucide="arrow-down" class="icon"></i></a>
+</section>
+
+
+
+<section id="s-services" class="sec deep">
+  <div class="topline"></div>
+  <div class="container">
+    <div class="head reveal"><h2 class="gold" data-k="services.title"></h2><p class="muted" data-k="services.subtitle"></p></div>
+    <div class="grid g-services" id="services-grid"></div>
+  </div>
+</section>
+
+<section class="sec" id="s-accounts">
+  <div class="orb" style="top:5rem;right:5rem;width:24rem;height:24rem;background:hsl(var(--primary) / .1);animation:pulse 8s infinite"></div>
+  <div class="orb" style="bottom:5rem;left:5rem;width:16rem;height:16rem;background:hsl(var(--primary) / .05);animation:pulse 6s 2s infinite"></div>
+  <div class="container" style="position:relative">
+    <div class="head reveal"><h2 class="gold" data-k="accounts.title"></h2><p class="muted" data-k="accounts.subtitle"></p></div>
+    <div class="grid g-acc" id="acc-grid"></div>
+  </div>
+</section>
+
+<section id="s-projects" class="sec deep">
+  <div class="gridbg"></div>
+  <div class="container" style="position:relative">
+    <div class="head reveal"><h2 class="gold" data-k="projects.title"></h2><p class="muted" data-k="projects.subtitle"></p></div>
+    <div class="filters" id="filters"></div>
+    <div id="vid-intro"></div>
+    <div class="grid g-projects" id="projects-grid"></div>
+  </div>
+</section>
+
+<section id="s-experience" class="sec">
+  <div class="dots"></div>
+  <div class="container" style="position:relative">
+    <div class="head reveal"><h2 class="gold" data-k="experience.title"></h2><p class="muted" data-k="experience.subtitle"></p></div>
+    <div class="grid g-ind" id="ind-grid"></div>
+  </div>
+</section>
+
+<section id="s-training" class="sec training">
+  <div class="container" style="position:relative">
+    <div class="head reveal"><h2 class="gold" data-k="training.title"></h2><p class="muted" data-k="training.subtitle"></p></div>
+    <div class="tr-stats reveal">
+      <div><span class="tnum gold">200+</span><small data-k="training.people"></small></div>
+      <div><span class="tot"><i data-lucide="award"></i>ToT</span><small data-k="training.tot"></small></div>
+    </div>
+    <h3 class="tr-h reveal" data-k="training.topicsT"></h3>
+    <div class="grid g-train" id="train-grid"></div>
+    <h3 class="tr-h reveal" data-k="training.formatsT"></h3>
+    <div class="tr-formats reveal" id="train-formats"></div>
+    <h3 class="tr-h reveal" data-k="training.deliveryT" style="margin-top:2.25rem"></h3>
+    <div class="tr-formats reveal" id="train-delivery"></div>
+    <div class="tr-gal reveal" id="train-gal"></div>
+  </div>
+</section>
+
+<a href="#s-contact" class="fab" id="fab" aria-label="Contact"><i data-lucide="message-circle"></i><span data-k="nav.contact"></span></a>
+
+<section id="s-contact" class="sec contact">
+  <div class="orb" style="top:50%;left:50%;width:600px;height:600px;transform:translate(-50%,-50%);background:hsl(var(--primary) / .05)"></div>
+  <div class="container" style="position:relative">
+    <div class="inner">
+      <div class="reveal"><h2 class="gold" data-k="contact.title"></h2><p class="lead muted" data-k="contact.subtitle"></p></div>
+      <div class="ctas reveal">
+        <a href="mailto:najedzouari@gmail.com" class="btn btn-hero xl"><i data-lucide="mail" class="icon"></i><span data-k="contact.email"></span></a>
+        <a href="https://wa.me/00393510946047" target="_blank" rel="noopener noreferrer" class="btn btn-outline xl"><i data-lucide="message-circle" class="icon"></i>WhatsApp</a>
+      </div>
+      <div class="socials reveal">
+        <a href="https://www.instagram.com/najed_zouari/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+        <a href="https://www.linkedin.com/in/najed-zouari/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Gallery">
+  <div class="lbbar"><span class="lbt"></span><span class="lbc muted"></span><a class="lbd" target="_blank" rel="noopener noreferrer" href="#"></a><button class="round lbx" aria-label="Close"><i data-lucide="x"></i></button></div>
+  <button class="round lbp" aria-label="Previous"><i data-lucide="chevron-left"></i></button>
+  <img alt="">
+  <button class="round lbn" aria-label="Next"><i data-lucide="chevron-right"></i></button>
+  <div class="lbpr"></div>
+</div>
+
+<footer>
+  <div class="container">
+    <a href="#s-top" style="display:inline-flex;align-items:center;gap:.75rem;text-decoration:none" aria-label="Najed Zouari — back to top"><span class="nz" aria-hidden="true">NZ</span><span class="logo gold">NAJED ZOUARI</span></a>
+    <p class="muted" style="margin:0;font-size:.875rem">© <span id="yr"></span> <span data-k="footer.rights"></span></p>
+  </div>
+</footer>
+
+<script>
+const T={
+it:{nav:{accounts:"Account",training:"Formazione",services:"Servizi",projects:"Progetti",experience:"Esperienza",contact:"Contatti",start:"Scarica il CV"},
+hero:{badge:"Soluzioni Digitali Creative",subtitle:"Specialista in comunicazione digitale e visual storyteller: fotografia, creazione di contenuti, UX/UI design e video.",highlight:"Trasformo le tue idee in contenuti che conquistano.",cta1:"Scopri i Servizi",cta2:"Contattami",scroll:"Scroll"},
+services:{goTrain:"Scopri la formazione",goAcc:"Vedi gli account",goProj:"Vedi i progetti",title:"SERVIZI",subtitle:"Soluzioni complete per portare il tuo business al livello successivo",items:{training:["FORMAZIONE & WORKSHOP","Corsi per principianti su social media, SEO, prompting IA e creazione di contenuti: oltre 200 persone formate."],social:["SOCIAL MEDIA & ADVERTISING","Strategie social e campagne pubblicitarie mirate per far crescere la tua presenza online e raggiungere il pubblico giusto."],photo:["FOTOGRAFIA","Scatti professionali che catturano l'essenza del tuo brand e dei tuoi prodotti."],ads:["PUBBLICITÀ","Campagne pubblicitarie efficaci che raggiungono il tuo pubblico target."],design:["DESIGN","Grafiche creative e branding che fanno risaltare la tua identità visiva."],video:["CREAZIONE VIDEO","Video coinvolgenti che raccontano la tua storia in modo memorabile."],seo:["SEO","Ottimizzazione per i motori di ricerca per aumentare la visibilità e il traffico organico."],website:["UX/UI DESIGN","Interfacce e percorsi utente chiari, dal wireframe al prototipo in Figma."]}},
+projects:{title:"PROGETTI",subtitle:"Una selezione dei miei lavori più recenti",all:"Tutti"},
+accounts:{title:"ACCOUNT GESTITI",subtitle:"Alcuni degli account social che ho gestito con successo",followers:"Followers",growth:"Crescita"},
+training:{title:"FORMATORE & FACILITATORE",subtitle:"Corsi base per studenti e giovani: si parte dall'ABC",years:"Anni di esperienza",people:"Persone formate",tot:"Formatore per adulti certificato",topicsT:"Corsi base che insegno",formatsT:"Formati",deliveryT:"Online o in presenza · in 4 lingue",online:"Online",inperson:"In presenza",topics:[["Comunicazione digitale & social media","Le basi per principianti: creare, pubblicare e gestire una pagina social."],["SEO per principianti","L'ABC per farsi trovare su Google: parole chiave, contenuti e visibilità."],["Prompting IA per principianti","Usare ChatGPT e altre IA passo dopo passo, scrivendo prompt chiari ed efficaci."],["Creazione di contenuti","Strumenti semplici e metodi pratici per produrre i primi contenuti."]],formats:["Workshop pratici","Formazione per adulti","Educazione non formale","Formazioni internazionali"]},experience:{title:"ESPERIENZA NEL SETTORE",subtitle:"Ho collaborato con aziende leader in diversi settori"},
+stats:{title:"STATISTICHE",subtitle:"I numeri che raccontano il mio lavoro",clients:"Clienti",from:"da",stars:"Poliglotta esperto",press:"Pubblicazioni sui media",multi:"Multilingue",countries:"Paesi"},
+contact:{title:"LAVORIAMO INSIEME",subtitle:"Hai un progetto in mente? Trasformiamo la tua visione in realtà.",email:"Scrivimi"},
+footer:{rights:"Tutti i diritti riservati."}},
+fr:{nav:{accounts:"Comptes",training:"Formation",services:"Services",projects:"Projets",experience:"Expérience",contact:"Contact",start:"Télécharger mon CV"},
+hero:{badge:"Solutions Digitales Créatives",subtitle:"Spécialiste en communication digitale et visual storyteller : photographie, création de contenu, UX/UI design et vidéo.",highlight:"Je transforme vos idées en contenus qui conquièrent.",cta1:"Découvrir les Services",cta2:"Me Contacter",scroll:"Défiler"},
+services:{goTrain:"Voir la formation",goAcc:"Voir les comptes",goProj:"Voir les projets",title:"SERVICES",subtitle:"Des solutions complètes pour amener votre entreprise au niveau supérieur",items:{training:["FORMATION & ATELIERS","Cours pour débutants en réseaux sociaux, SEO, prompting IA et création de contenu : plus de 200 personnes formées."],social:["RÉSEAUX SOCIAUX & PUBLICITÉ","Stratégies social media et campagnes publicitaires ciblées pour développer votre présence en ligne et toucher le bon public."],photo:["PHOTOGRAPHIE","Photos professionnelles qui capturent l'essence de votre marque et de vos produits."],ads:["PUBLICITÉ","Campagnes publicitaires efficaces qui atteignent votre public cible."],design:["DESIGN","Graphiques créatifs et branding qui font ressortir votre identité visuelle."],video:["CRÉATION VIDÉO","Vidéos engageantes qui racontent votre histoire de manière mémorable."],seo:["SEO","Optimisation pour les moteurs de recherche pour augmenter la visibilité et le trafic organique."],website:["UX/UI DESIGN","Interfaces et parcours utilisateur clairs, du wireframe au prototype Figma."]}},
+projects:{title:"PROJETS",subtitle:"Une sélection de mes travaux les plus récents",all:"Tous"},
+accounts:{title:"COMPTES GÉRÉS",subtitle:"Quelques-uns des comptes sociaux que j'ai gérés avec succès",followers:"Abonnés",growth:"Croissance"},
+training:{title:"FORMATEUR & FACILITATEUR",subtitle:"Cours de base pour étudiants et jeunes : on part de l'ABC",years:"Années d'expérience",people:"Personnes formées",tot:"Formateur d'adultes certifié",topicsT:"Les cours de base que j'enseigne",formatsT:"Formats",deliveryT:"En ligne ou en présentiel · en 4 langues",online:"En ligne",inperson:"En présentiel",topics:[["Communication digitale & réseaux sociaux","Les bases pour débutants : créer, publier et gérer une page sur les réseaux."],["SEO pour débutants","L'ABC pour être trouvé sur Google : mots-clés, contenus et visibilité."],["Prompting IA pour débutants","Utiliser ChatGPT et d'autres IA pas à pas, avec des prompts clairs et efficaces."],["Création de contenu","Des outils simples et des méthodes concrètes pour produire ses premiers contenus."]],formats:["Ateliers pratiques","Formation d'adultes","Éducation non formelle","Formations internationales"]},experience:{title:"EXPÉRIENCE SECTORIELLE",subtitle:"J'ai collaboré avec des entreprises leaders dans divers secteurs"},
+stats:{title:"STATISTIQUES",subtitle:"Les chiffres qui racontent mon travail",clients:"Clients",from:"de",stars:"Polyglotte expérimenté",press:"Publications médias",multi:"Multilingue",countries:"Pays"},
+contact:{title:"TRAVAILLONS ENSEMBLE",subtitle:"Vous avez un projet en tête? Transformons votre vision en réalité.",email:"M'écrire"},
+footer:{rights:"Tous droits réservés."}},
+en:{nav:{accounts:"Accounts",training:"Training",services:"Services",projects:"Projects",experience:"Experience",contact:"Contact",start:"Download my CV"},
+hero:{badge:"Creative Digital Solutions",subtitle:"Digital communication specialist & visual storyteller: photography, content creation, UX/UI design and video.",highlight:"Transform your ideas into content that conquers.",cta1:"Discover Services",cta2:"Contact Me",scroll:"Scroll"},
+services:{goTrain:"See my training work",goAcc:"See the accounts",goProj:"See the projects",title:"SERVICES",subtitle:"Complete solutions to take your business to the next level",items:{training:["TRAINING & WORKSHOPS","Beginner courses in social media, SEO, AI prompting and content creation: 200+ people trained."],social:["SOCIAL MEDIA & ADVERTISING","Social media strategy and targeted ad campaigns that grow your online presence and reach the right audience."],photo:["PHOTOGRAPHY","Professional shots that capture the essence of your brand and products."],ads:["ADVERTISING","Effective advertising campaigns that reach your target audience."],design:["DESIGN","Creative graphics and branding that make your visual identity stand out."],video:["VIDEO CREATION","Engaging videos that tell your story in a memorable way."],seo:["SEO","Search engine optimization to increase visibility and organic traffic."],website:["UX/UI DESIGN","Clear interfaces and user journeys, from wireframe to Figma prototype."]}},
+projects:{title:"PROJECTS",subtitle:"A selection of my most recent work",all:"All"},
+accounts:{title:"MANAGED ACCOUNTS",subtitle:"Some of the social accounts I've successfully managed",followers:"Total Followers",growth:"Growth"},
+training:{title:"TRAINER & FACILITATOR",subtitle:"Beginner courses for students and youth, starting from the ABC",years:"Years of experience",people:"People trained",tot:"Certified adult trainer",topicsT:"Beginner courses I teach",formatsT:"Formats",deliveryT:"Online or in person · in 4 languages",online:"Online",inperson:"In person",topics:[["Digital communication & social media","The basics for beginners: create, post and manage a social media page."],["SEO for beginners","The ABC of getting found on Google: keywords, content and visibility."],["AI prompting for beginners","Using ChatGPT and other AI tools step by step, with clear, effective prompts."],["Content creation","Simple tools and practical methods to produce your first content."]],formats:["Hands-on workshops","Adult training","Non-formal education","International trainings"]},experience:{title:"INDUSTRY EXPERIENCE",subtitle:"I've collaborated with leading companies in various sectors"},
+stats:{title:"STATISTICS",subtitle:"The numbers that tell my story",clients:"Clients",from:"from",stars:"Experienced polyglot",press:"Press publications",multi:"Multilingual",countries:"Countries"},
+contact:{title:"LET'S WORK TOGETHER",subtitle:"Have a project in mind? Let's turn your vision into reality.",email:"Email Me"},
+footer:{rights:"All rights reserved."}}};
+
+const SERVICES=[["social","megaphone"],["photo","camera"],["video","film"],["seo","search"],["website","layout-template"]];
+const SVC_TARGET={social:null,photo:"Photography",video:"Videos",seo:"SEO",website:"UX/UI"};
+
+/* Project images: the Lovable site uses Unsplash photos, which can't load in a Claude preview. Each card shows a gradient until you put your own images here (img: "URL"). */
+const PROJECTS=[];
+const PHOTO=[
+ {key:"eurocam",n:5,press:1,drive:"https://drive.google.com/drive/folders/13hhFQItFQyIWG3PTCZMG859dUAB3UiHy",title:{en:"Eurocam: Mozambique President meeting with investors in Brussels",it:"Eurocam: il Presidente del Mozambico incontra gli investitori a Bruxelles",fr:"Eurocam : le Président du Mozambique rencontre des investisseurs à Bruxelles"},desc:{en:"Institutional and corporate photography at an official business meeting",it:"Fotografia istituzionale e corporate durante un incontro ufficiale",fr:"Photographie institutionnelle et corporate lors d'une rencontre officielle"}},
+ {key:"pwc",n:7,drive:"https://drive.google.com/drive/folders/1jRzohPcTc-6AIZQAhO1Nt3uJyHyaYgFP",title:{en:"Safe Cycling Workshop · PwC Luxembourg",it:"Workshop di ciclismo sicuro · PwC Lussemburgo",fr:"Atelier vélo en sécurité · PwC Luxembourg"},desc:{en:"Event photography of a road-safety workshop with Afrilanthropy and Responsible Young Drivers",it:"Fotografia di evento: workshop sulla sicurezza stradale con Afrilanthropy e Responsible Young Drivers",fr:"Photo d'événement : atelier de sécurité routière avec Afrilanthropy et Responsible Young Drivers"}},
+ {key:"vauban",n:5,drive:"https://drive.google.com/drive/folders/1ZkTIDKHJzGpOLxny3oejbj-PFfuru1lM",title:{en:"Safe Cycling Workshop · Vauban School Luxembourg",it:"Workshop di ciclismo sicuro · Scuola Vauban Lussemburgo",fr:"Atelier vélo en sécurité · École Vauban Luxembourg"},desc:{en:"Event photography: VR bike simulator and road-safety activities with students",it:"Fotografia di evento: simulatore VR e attività di sicurezza stradale con gli studenti",fr:"Photo d'événement : simulateur vélo VR et activités de sécurité routière avec les élèves"}},
+ {key:"allez",n:3,drive:"https://drive.google.com/drive/folders/1lqWTnYmrQGjMCUnTxmEjMkX2_oMoYNH_",title:{en:"AllezLEco Training · Erasmus+ Luxembourg",it:"AllezLEco Training · Erasmus+ Lussemburgo",fr:"AllezLEco Training · Erasmus+ Luxembourg"},desc:{en:"Event coverage of an Erasmus+ training course, including the Upcycling Creative Lab",it:"Copertura fotografica di un training Erasmus+, incluso l'Upcycling Creative Lab",fr:"Couverture photo d'une formation Erasmus+, dont l'Upcycling Creative Lab"}},
+ {key:"vignanello",n:5,drive:"https://drive.google.com/drive/folders/1Ryd6-qoT26KdCe1-Ql60o8dQ6gy5RIol",title:{en:"Guided Trip · Vignanello",it:"Gita guidata · Vignanello",fr:"Visite guidée · Vignanello"},desc:{en:"Reportage of a guided visit: gardens, portraits and a medieval archery festival",it:"Reportage di una visita guidata: giardini, ritratti e una festa medievale con arcieri",fr:"Reportage d'une visite guidée : jardins, portraits et fête médiévale des archers"}},
+ {key:"carnaval",n:5,drive:"https://drive.google.com/drive/folders/139to7LFX_s9mNHBuaB6iFzx2nQfGNecL",title:{en:"Carnival Viterbo 2023",it:"Carnevale Viterbo 2023",fr:"Carnaval Viterbo 2023"},desc:{en:"Street and portrait photography: faces, colour and confetti",it:"Street e ritratti: volti, colori e coriandoli",fr:"Photo de rue et portraits : visages, couleurs et confettis"}},
+ {key:"concerto",n:4,drive:"https://drive.google.com/drive/folders/17WPiGtANbsMrKnmlAbuj5m8hEHO-E-gS",title:{en:"Concert · San Leonardo Murialdo, Viterbo 2026",it:"Concerto · San Leonardo Murialdo, Viterbo 2026",fr:"Concert · San Leonardo Murialdo, Viterbe 2026"},desc:{en:"Live music photography of a young orchestra and choir",it:"Fotografia di musica dal vivo: orchestra e coro giovanili",fr:"Photo de concert : orchestre et chœur de jeunes"}}];
+PHOTO.forEach(p=>PROJECTS.push({title:p.title,cat:"Photography",desc:p.desc,stat:{en:p.n+" photos · open gallery",it:p.n+" foto · apri la galleria",fr:p.n+" photos · ouvrir la galerie"},img:`img/${p.key}-1.jpg`,press:p.press,gallery:Array.from({length:p.n},(_,i)=>`img/${p.key}-${i+1}.jpg`),drive:p.drive}));
+const SEO=[
+ ["MedEspoir","https://www.medespoir.com/","medespoir.com","img/seo-medespoir.jpg",{en:"Aesthetic surgery agency",it:"Agenzia di chirurgia estetica",fr:"Agence de chirurgie esthétique"},"linear-gradient(135deg,#fb7185,#be123c)"],
+ ["Ywatik","https://ywatik.com/","ywatik.com","img/seo-ywatik.jpg",{en:"Fashion e-commerce",it:"E-commerce di moda",fr:"E-commerce de mode"},"linear-gradient(135deg,#8b5cf6,#6d28d9)"],
+ ["Aram Clinique","https://www.aram-clinic.com/en/","aram-clinic.com","img/seo-aram.jpg",{en:"Aesthetic clinic",it:"Clinica estetica",fr:"Clinique esthétique"},"linear-gradient(135deg,#1f2937,#b45309)"],
+ ["Samsung Experience Store Tunisia","https://www.samsungstoretunisie.tn/","samsungstoretunisie.tn","img/seo-samsung.jpg",{en:"Electronics e-commerce",it:"E-commerce di elettronica",fr:"E-commerce d'électronique"},"linear-gradient(135deg,#1d4ed8,#0f172a)"]];
+SEO.forEach(([n,url,dom,img,sec,bg])=>PROJECTS.push({title:{en:n,it:n,fr:n},cat:"SEO",desc:{en:"SEO: search engine optimisation · "+sec.en,it:"SEO: ottimizzazione per i motori di ricerca · "+sec.it,fr:"SEO : optimisation pour les moteurs de recherche · "+sec.fr},stat:{en:"Visit "+dom,it:"Visita "+dom,fr:"Visiter "+dom},img,bg,url,dom:img?"":dom}));
+const ROLES={voice:{i:"mic",en:"Voice-over",it:"Voce",fr:"Voix off"},camera:{i:"video",en:"Camera",it:"Riprese",fr:"Caméra"},drone:{i:"plane",en:"Drone",it:"Drone",fr:"Drone"},edit:{i:"scissors",en:"Editing",it:"Montaggio",fr:"Montage"}};
+const VINTRO={en:"Every video here is <b>shot, flown, voiced and edited by me</b>: camera, drone, voice-over and editing.",it:"Ogni video qui è <b>girato, pilotato, doppiato e montato da me</b>: riprese, drone, voce e montaggio.",fr:"Chaque vidéo ici est <b>filmée, pilotée, doublée et montée par moi</b> : caméra, drone, voix off et montage."};
+const REELS=["DXpbYP3iIeU", "DXrp4JXDLyY", "DYPr98FI3wq", "DYSVz4oonD1", "Ddj4J4cuJQb", "DdbyzLfoVgJ", "DbD2dhCIt0E"],REELBG=["#f58529,#dd2a7b", "#dd2a7b,#8134af", "#8134af,#515bd4", "#515bd4,#06b6d4", "#f59e0b,#ef4444", "#ec4899,#8b5cf6", "#14b8a6,#3b82f6"];
+REELS.forEach((id,i)=>{const n=String(i+1).padStart(2,"0");PROJECTS.push({title:{en:"Reel "+n,it:"Reel "+n,fr:"Reel "+n},cat:"Videos",desc:{en:"Short-form video: concept, shooting and editing · Instagram Reel",it:"Video breve: ideazione, riprese e montaggio · Instagram Reel",fr:"Vidéo courte : concept, tournage et montage · Reel Instagram"},stat:{en:"Watch on Instagram",it:"Guarda su Instagram",fr:"Voir sur Instagram"},bg:`linear-gradient(135deg,${REELBG[i]})`,url:`https://www.instagram.com/reel/${id}/`,ico:"play",roles:["voice","camera","drone","edit"]})});
+PROJECTS.unshift({title:{en:"SAWA · AI chatbot for refugees",it:"SAWA · Chatbot IA per rifugiati",fr:"SAWA · Chatbot IA pour réfugiés"},cat:"UX/UI",desc:{en:"Figma redesign of a multilingual assistant for asylum seekers in Luxembourg, with Afrilanthropy: 12 languages, onboarding, sourced answers and one-tap urgent help",it:"Redesign Figma di un assistente multilingue per richiedenti asilo in Lussemburgo, con Afrilanthropy: 12 lingue, onboarding, risposte con fonti e aiuto urgente in un tocco",fr:"Redesign Figma d\u2019un assistant multilingue pour demandeurs d\u2019asile au Luxembourg, avec Afrilanthropy : 12 langues, onboarding, réponses sourcées et aide urgente en un geste"},stat:{en:"Open the gallery · Figma prototype",it:"Apri la galleria · prototipo Figma",fr:"Ouvrir la galerie · prototype Figma"},img:"img/sawa-cover.jpg",gallery:["img/sawa-1.jpg","img/sawa-2.jpg","img/sawa-3.jpg","img/sawa-4.jpg"],drive:"https://www.figma.com/proto/Onsr7XCs3tmMbTJr69gbNt/SAWA-%E2%80%93-Multilingual-Chatbot-Redesign?node-id=11-557&p=f&scaling=min-zoom&content-scaling=fixed&page-id=11%3A456&starting-point-node-id=11%3A457",linkLabel:{it:"Apri il prototipo Figma",fr:"Ouvrir le prototype Figma",en:"Open the Figma prototype"}});
+const CATS={"Photography":{it:"Fotografia",fr:"Photographie",en:"Photography"},"UX/UI":{it:"UX/UI",fr:"UX/UI",en:"UX/UI"},"SEO":{it:"SEO",fr:"SEO",en:"SEO"},"Videos":{it:"Video",fr:"Vidéos",en:"Videos"}};
+
+const ACCCAT={"Health & Beauty":{it:"Salute & Bellezza",fr:"Santé & Beauté",en:"Health & Beauty"},"NGO":{it:"ONG",fr:"ONG",en:"NGO"},"Real Estate":{it:"Immobiliare",fr:"Immobilier",en:"Real Estate"},"SINGER":{it:"Cantante",fr:"Chanteuse",en:"Singer"},"Kids Park":{it:"Parco per bambini",fr:"Parc pour enfants",en:"Kids Park"},"Cosmetic Surgery Doctor":{it:"Chirurgo estetico",fr:"Chirurgien esthétique",en:"Cosmetic Surgery Doctor"},"University":{it:"Università",fr:"Université",en:"University"}};
+const ACCOUNTS=[
+ ["@Aram_clinique",{instagram:"https://www.instagram.com/aram_clinique/"},"45K","+120%","Health & Beauty","#ec4899,#9333ea","img/av/aram.png"],
+ ["@Medespoirtn",{instagram:"https://www.instagram.com/medespoirtn/?hl=fr",youtube:"https://www.youtube.com/channel/UCo6gBWsB1d-hnVmx9mMn6BQ"},"96.1K","+120%","Health & Beauty","#fb7185,#db2777","img/av/medespoir.png"],
+ ["@aicha_othman",{instagram:"https://www.instagram.com/aicha_othman/",youtube:"https://www.youtube.com/channel/UCVUSwZgsId0pXYLuaFku2dg"},"3 M","+10%","SINGER","#8b5cf6,#9333ea","img/av/aicha.png"],
+ ["@Ases_Viterbo",{instagram:"https://www.instagram.com/ases_viterbo/",facebook:"https://www.facebook.com/share/1EG4TWg77k/?mibextid=wwXIfr"},"2.662","+50%","NGO","#60a5fa,#06b6d4","img/av/ases.png"],
+ ["@Alikapurezenhome",{instagram:"https://www.instagram.com/alikapurezenhome/"},"1.117","+15%","Real Estate","#fbbf24,#f97316","img/av/alika.png"],
+ ["@YWATIk.com_",{instagram:"https://www.instagram.com/ywatik.com_/"},"1.557","+200%","Health & Beauty","#8b5cf6,#9333ea","img/av/ywatik.png"],
+ ["@kidreamtabarka",{instagram:"https://www.instagram.com/kidreamtabarka/",facebook:"https://www.facebook.com/100095169942507/"},"10K","+200%","Kids Park","#8b5cf6,#9333ea","img/av/kidream.png"],
+ ["@DrgamYoussef",{instagram:"https://www.instagram.com/drgamyoussef/"},"43.4K","+200%","Cosmetic Surgery Doctor","#8b5cf6,#9333ea","img/av/drgam.png"],
+ ["@aFRILANTHROPY.asbl",{instagram:"https://www.instagram.com/afrilanthropy.asbl/",linkedin:"https://lu.linkedin.com/company/afrilanthropy"},"2.100","+100%","NGO","#34d399,#14b8a6","img/av/afrilanthropy.png"],
+ ["@blp.university",{instagram:"https://www.instagram.com/blp.university?obrf=dGViZzcxNHA4MzVv",facebook:"https://www.facebook.com/share/19buw99bPP/?mibextid=wwXIfr"},"11.7K","+80%","University","#3b82f6,#1e3a8a","img/av/blp.png"]];
+const PLAT=[["instagram","instagram","Instagram"],["youtube","youtube","YouTube"],["facebook","facebook","Facebook"],["linkedin","linkedin","LinkedIn"]];
+
+const INDUSTRIES=[
+ ["heart","#ec4899,#f43f5e",{it:"SALUTE & BELLEZZA",fr:"SANTÉ & BEAUTÉ",en:"HEALTH & BEAUTY"},{it:["Agenzia di chirurgia estetica","Medico, Clinica"],fr:["Agence de chirurgie esthétique","Médecin, Clinique"],en:["Cosmetic surgery agency","Doctor, Clinic"]}],
+ ["graduation-cap","#60a5fa,#22d3ee",{it:"ISTRUZIONE",fr:"ÉDUCATION",en:"EDUCATION"},{it:["Università privata","Centri di formazione"],fr:["Université privée","Centres de formation"],en:["Private university","Training centers"]}],
+ ["shirt","#a855f7,#8b5cf6",{it:"MODA",fr:"MODE",en:"FASHION"},{it:["Merch personalizzato","Marca di vestiti"],fr:["Merch personnalisé","Marque de vêtements"],en:["Custom merch","Clothing brand"]}],
+ ["tv","#fbbf24,#f97316",{it:"INTRATTENIMENTO",fr:"DIVERTISSEMENT",en:"ENTERTAINMENT"},{it:["Cantante","Programma TV","Parco divertimenti"],fr:["Chanteuse","Émission TV","Parc d'attractions"],en:["Singer","TV show","Amusement park"]}],
+ ["building-2","#34d399,#0d9488",{it:"IMMOBILIARE",fr:"IMMOBILIER",en:"REAL ESTATE"},{it:["Case vacanza e wellness","Agenzie immobiliari"],fr:["Maisons de vacances et bien-être","Agences immobilières"],en:["Holiday & wellness homes","Real estate agencies"]}],
+ ["hand-heart","#60a5fa,#6366f1",{it:"ASSOCIAZIONI & ONG",fr:"ASSOCIATIONS & ONG",en:"ASSOCIATIONS & NGOS"},{it:["ONG internazionali","Associazioni studentesche ed Erasmus","Progetti europei"],fr:["ONG internationales","Associations étudiantes et Erasmus","Projets européens"],en:["International NGOs","Student & Erasmus associations","European projects"]}]];
+
+const FLAG={
+mz:'<rect width="30" height="20" fill="#FCE100"/><rect width="30" height="13.6" fill="#fff"/><rect width="30" height="12.4" fill="#000"/><rect width="30" height="7.6" fill="#fff"/><rect width="30" height="6.4" fill="#007168"/><polygon points="0,0 12,10 0,20" fill="#D21034"/><polygon fill="#FCE100" points="4.5,7.2 5.3,9.4 7.6,9.4 5.7,10.8 6.4,13 4.5,11.6 2.6,13 3.3,10.8 1.4,9.4 3.7,9.4"/>',
+it:'<rect width="30" height="20" fill="#CE2B37"/><rect width="20" height="20" fill="#fff"/><rect width="10" height="20" fill="#009246"/>',
+fr:'<rect width="30" height="20" fill="#ED2939"/><rect width="20" height="20" fill="#fff"/><rect width="10" height="20" fill="#002395"/>',
+en:'<rect width="30" height="20" fill="#012169"/><path d="M0,0 30,20M30,0 0,20" stroke="#fff" stroke-width="4"/><path d="M0,0 30,20M30,0 0,20" stroke="#C8102E" stroke-width="1.6"/><path d="M15,0V20M0,10H30" stroke="#fff" stroke-width="6"/><path d="M15,0V20M0,10H30" stroke="#C8102E" stroke-width="3.4"/>',
+ar:'<rect width="30" height="20" fill="#E70013"/><circle cx="15" cy="10" r="5" fill="#fff"/><circle cx="15" cy="10" r="3.75" fill="#E70013"/><circle cx="16" cy="10" r="3" fill="#fff"/><polygon fill="#E70013" points="14.2,10 17.4,8.9 15.4,11.6 15.4,8.4 17.4,11.1"/>'};
+const TRAIN=[
+ {i:[8,9],c:{en:"CIP FP Batoi training centre · Alcoy, Spain, October 2026",it:"Centro di formazione CIP FP Batoi · Alcoy, Spagna, ottobre 2026",fr:"Centre de formation CIP FP Batoi · Alcoy, Espagne, octobre 2026"}},
+ {i:[1,2],c:{en:"Amazon headquarters · Luxembourg, March 2026",it:"Sede Amazon · Lussemburgo, marzo 2026",fr:"Siège d'Amazon · Luxembourg, mars 2026"}},
+ {i:[3],c:{en:"Practical workshop for an NGO · Luxembourg, March 2026",it:"Workshop pratico per una ONG · Lussemburgo, marzo 2026",fr:"Atelier pratique pour une ONG · Luxembourg, mars 2026"}},
+ {i:[4],c:{en:"European School of Luxembourg · February 2026",it:"Scuola Europea di Lussemburgo · febbraio 2026",fr:"École européenne de Luxembourg · février 2026"}},
+ {i:[5],c:{en:"University in Tunisia · December 2022",it:"Università in Tunisia · dicembre 2022",fr:"Université en Tunisie · décembre 2022"}},
+ {i:[10],c:{en:"Online · Optimising your LinkedIn profile · DMK Club Bizerte, March 2022",it:"Online · Ottimizzare il profilo LinkedIn · DMK Club Bizerte, marzo 2022",fr:"En ligne · Optimiser son profil LinkedIn · DMK Club Bizerte, mars 2022"},link:"https://www.linkedin.com/posts/najed-zouari_linkedin-socialmediamarketing-digitalmarketing-activity-6909826282507649024-5eX_"},
+ {i:[11],c:{en:"Online · Optimising your LinkedIn profile · IEEE ENIT WIE Student Branch, February 2022",it:"Online · Ottimizzare il profilo LinkedIn · IEEE ENIT WIE Student Branch, febbraio 2022",fr:"En ligne · Optimiser son profil LinkedIn · IEEE ENIT WIE Student Branch, février 2022"},link:"https://www.linkedin.com/posts/najed-zouari_merci-ieee-enit-student-branch-wie-affinity-activity-6901480896264769536-sUZG"},
+ {i:[7],c:{en:"Digital marketing training · University, Tunisia, November 2021",it:"Formazione in marketing digitale · Università, Tunisia, novembre 2021",fr:"Formation en marketing digital · Université, Tunisie, novembre 2021"},link:"https://lnkd.in/p/eZzFuA_G"},
+ {i:[12],c:{en:"Online · Everything you need to know about LinkedIn · Rotaract Notre Dame Tunis, April 2021",it:"Online · Tutto quello che c'è da sapere su LinkedIn · Rotaract Notre Dame Tunis, aprile 2021",fr:"En ligne · Tout ce que vous devez savoir sur LinkedIn · Rotaract Notre Dame Tunis, avril 2021"},link:"https://www.linkedin.com/posts/najed-zouari_jci-tunivisions-rotaract-activity-6783704003399184384-JqhC"},
+ {i:[13],c:{en:"Online · Introduction to WordPress · Tunivisions Club ISETN, May 2020",it:"Online · Introduzione a WordPress · Tunivisions Club ISETN, maggio 2020",fr:"En ligne · Introduction à WordPress · Tunivisions Club ISETN, mai 2020"},link:"https://www.linkedin.com/posts/najed-zouari_wordpress-digitalmarketing-webdesign-activity-6667037225097687040-aSJ6"}];
+const TRAIN_FLAT=TRAIN.flatMap((t,g)=>t.i.map(n=>({n,g})));
+const TRAIN_CAPS=TRAIN_FLAT.map(x=>TRAIN[x.g].c);
+PROJECTS.push({title:{en:"Trainer & Facilitator",it:"Formatore & Facilitatore",fr:"Formateur & Facilitateur"},cat:"_train",desc:{en:"",it:"",fr:""},stat:{en:"",it:"",fr:""},gallery:TRAIN_FLAT.map(x=>`img/train-${x.n}.jpg`),caps:TRAIN_CAPS,links:TRAIN_FLAT.map(x=>TRAIN[x.g].link||"")});
+const PRESS={n:30,lead:{en:"Published in 30 media",it:"Pubblicate da 30 media",fr:"Publiées par 30 médias"},seen:{en:"As seen in",it:"Pubblicate su",fr:"Publiées dans"},more:{en:"+ 24 Italian regional & thematic sites",it:"+ 24 siti regionali e tematici italiani",fr:"+ 24 sites régionaux et thématiques italiens"},list:[["mz","O País","https://opais.co.mz/eurocam-quer-mais-empresas-europeias-a-investir-no-pais/"],["mz","Diário Económico","https://www.diarioeconomico.co.mz/?p=476570"],["mz","Evidências","https://evidencias.co.mz/2026/03/20/presidente-da-republica-mobiliza-investidores-europeus-e-reforca-confianca-no-potencial-economico-de-mocambique/"],["mz","Eurocam Moçambique","https://eurocam.org.mz/2026/03/19/presidente-daniel-chapo-mobiliza-investidores-europeus-e-reforca-confianca-no-potencial-economico-de-mocambique/"],["it","Associated Medias","https://associatedmedias.com/con-il-mozambico-per-litalia-si-apre-una-finestra-energetica-strategica/"],["it","Italia24h","https://www.italia24h.com"]]};
+const flag=(c,w=22)=>`<svg viewBox="0 0 30 20" width="${w}" height="${Math.round(w*2/3)}" aria-hidden="true" style="border-radius:3px;flex-shrink:0;box-shadow:0 1px 3px rgba(0,0,0,.3)">${FLAG[c]}</svg>`;
+const LANGS=[["it","IT"],["fr","FR"],["en","EN"]];
+let lang="it",cat="Photography";
+try{lang=localStorage.getItem("nz-lang")||"it";}catch(e){}
+try{const th=localStorage.getItem("nz-theme");if(th==="light")document.documentElement.classList.remove("dark");}catch(e){}
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const get=(o,p)=>p.split(".").reduce((a,k)=>a&&a[k],o);
+
+function renderLang(){
+  document.querySelectorAll(".lang").forEach(box=>{
+    const cur=LANGS.find(l=>l[0]===lang);
+    box.innerHTML=`<button class="langbtn" aria-haspopup="true" aria-label="Language">${flag(cur[0])}<span>${cur[1]}</span><i data-lucide="chevron-down" class="icon" style="width:1rem;height:1rem"></i></button>
+    <div class="langmenu">${LANGS.map(l=>`<button data-l="${l[0]}" class="${l[0]===lang?"on":""}">${flag(l[0],24)}${l[1]}</button>`).join("")}</div>`;
+    const m=box.querySelector(".langmenu");
+    box.querySelector(".langbtn").onclick=e=>{e.stopPropagation();document.querySelectorAll(".langmenu").forEach(x=>x!==m&&x.classList.remove("open"));m.classList.toggle("open")};
+    m.querySelectorAll("button").forEach(b=>b.onclick=()=>{lang=b.dataset.l;try{localStorage.setItem("nz-lang",lang)}catch(e){};render()});
+  });
+}
+function renderTheme(){
+  const dark=document.documentElement.classList.contains("dark");
+  document.querySelectorAll(".theme").forEach(b=>{b.innerHTML=`<i data-lucide="${dark?"moon":"sun"}" class="icon"></i>`;b.onclick=()=>{document.documentElement.classList.toggle("dark");try{localStorage.setItem("nz-theme",document.documentElement.classList.contains("dark")?"dark":"light")}catch(e){};renderTheme();icons()}});
+}
+function render(){
+  const t=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll("[data-k]").forEach(el=>el.textContent=get(t,el.dataset.k));
+  document.getElementById("services-grid").innerHTML=SERVICES.map(([k,ic])=>`<button type="button" class="card svc reveal" data-svc="${k}"><div class="ic"><i data-lucide="${ic}"></i></div><h3>${esc(t.services.items[k][0])}</h3><p class="muted">${esc(t.services.items[k][1])}</p><span class="svc-go">${esc(k==="social"?t.services.goAcc:k==="training"?t.services.goTrain:t.services.goProj)}<i data-lucide="arrow-right" class="icon"></i></span></button>`).join("");
+  document.querySelectorAll(".svc[data-svc]").forEach(b=>b.onclick=()=>goService(b.dataset.svc));
+  document.getElementById("filters").innerHTML=Object.keys(CATS).filter(c=>PROJECTS.some(p=>p.cat===c)).map(c=>`<button data-c="${c}" class="${c===cat?"on":""}">${esc(CATS[c][lang])}</button>`).join("");
+  document.querySelectorAll("#filters button").forEach(b=>b.onclick=()=>{cat=b.dataset.c;render()});
+  const vi=document.getElementById("vid-intro"),pg=document.getElementById("projects-grid"),fresh=cat==="Videos"&&window._lastCat!=="Videos";
+  vi.innerHTML=cat==="Videos"?`${fresh?`<div class="vi-stage"><div class="vi-path"></div><svg class="vi-drone" viewBox="0 0 72 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><ellipse class="pr" cx="12" cy="6" rx="10" ry="2"/><ellipse class="pr" cx="60" cy="6" rx="10" ry="2"/><path d="M12 8v6M60 8v6M12 14h48"/><rect x="24" y="12" width="24" height="12" rx="5" fill="hsl(var(--background))"/><path d="M30 24l-4 8M42 24l4 8"/><circle cx="36" cy="28" r="3.5" fill="currentColor"/></svg><i data-lucide="camera" class="vi-cam"></i><div class="vi-flash"></div></div>`:""}<p class="vi-line">${VINTRO[lang]}</p>`:"";
+  pg.classList.toggle("vids-in",fresh);window._lastCat=cat;
+  if(fresh)requestAnimationFrame(()=>{const st=vi.querySelector(".vi-stage");if(st){st.classList.add("go");setTimeout(()=>{st.classList.remove("go");st.classList.add("done")},2700)}});
+  document.getElementById("projects-grid").innerHTML=PROJECTS.filter(p=>p.cat===cat).map(p=>`<${p.url?`a href="${p.url}" target="_blank" rel="noopener noreferrer"`:"div"} class="proj${p.ico?" reel":""}${p.press?" haspress":""}" tabindex="0" ${p.gallery?`role="button" aria-label="${esc(p.title[lang])}" data-g="${PROJECTS.indexOf(p)}"`:""}>${p.dom?`<span class="dom"><i data-lucide="globe" class="icon"></i>${esc(p.dom)}</span>`:""}${p.ico?`<span class="play"><i data-lucide="${p.ico}"></i></span>`:""}<div class="img" style="background-image:${p.img?`url('${p.img}')`:p.bg}" role="img" aria-label="${esc(p.title[lang])}"></div><div class="ov"></div><div class="ct">${p.press?`<span class="pressb"><i data-lucide="newspaper"></i>${esc(PRESS.lead[lang])} ${flag("mz",18)}${flag("it",18)}</span>`:p.ico?"":`<span class="tag">${esc(CATS[p.cat][lang])}</span>`}${p.roles?`<div class="roles">${p.roles.map(r=>`<span><i data-lucide="${ROLES[r].i}"></i>${esc(ROLES[r][lang])}</span>`).join("")}</div>`:""}<h3>${esc(p.title[lang])}</h3><div class="more"><p class="muted">${esc(p.desc[lang])}</p><div><span>${esc(p.stat[lang])}</span><i data-lucide="arrow-right" class="icon"></i></div></div></div><div class="bd"></div></${p.url?"a":"div"}>`).join("");
+  if(fresh)pg.querySelectorAll(".proj").forEach((e,k)=>e.style.animationDelay=(1.5+k*.12)+"s");
+  document.querySelectorAll(".proj[data-g]").forEach(el=>{const open=()=>openLB(+el.dataset.g,0);el.onclick=open;el.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}}});
+  document.getElementById("acc-grid").innerHTML=ACCOUNTS.map(([n,links,f,g,c,col,av])=>`<div class="card acc reveal"><div class="top">${av?`<img class="av avi" src="${av}" alt="${esc(n)}" loading="lazy">`:`<div class="av" style="background:linear-gradient(135deg,${col})"><i data-lucide="instagram"></i></div>`}<span class="cat">${esc((ACCCAT[c]||{})[lang]||c)}</span></div><h3>${esc(n)}</h3><div class="pl">${PLAT.filter(p=>links[p[0]]).map(p=>`<a href="${links[p[0]]}" target="_blank" rel="noopener noreferrer" aria-label="${esc(n)} ${p[2]}"><i data-lucide="${p[1]}"></i></a>`).join("")}</div><div class="st"><div><i data-lucide="users" style="color:hsl(var(--primary))"></i><b>${esc(f)}</b><small>${esc(t.accounts.followers)}</small></div><div><i data-lucide="trending-up" class="green"></i><b class="green">${esc(g)}</b><small>${esc(t.accounts.growth)}</small></div></div></div>`).join("");
+  document.getElementById("ind-grid").innerHTML=INDUSTRIES.map(([ic,col,ti,items])=>`<div class="card ind reveal"><div class="ic" style="background:linear-gradient(135deg,${col})"><i data-lucide="${ic}"></i></div><h3>${esc(ti[lang])}</h3><ul class="muted">${items[lang].map(i=>`<li>${esc(i)}</li>`).join("")}</ul></div>`).join("");
+  document.getElementById("train-grid").innerHTML=t.training.topics.map(([h,d],i)=>`<div class="card trc reveal"><div class="ic"><i data-lucide="${["megaphone","search","bot","sparkles"][i]}"></i></div><h4>${esc(h)}</h4><p class="muted">${esc(d)}</p></div>`).join("");
+  document.getElementById("train-formats").innerHTML=t.training.formats.map((f,i)=>`<span><i data-lucide="${["users","graduation-cap","lightbulb","globe"][i]}"></i>${esc(f)}</span>`).join("");
+  document.getElementById("train-delivery").innerHTML=`<span><i data-lucide="monitor"></i>${esc(t.training.online)}</span><span><i data-lucide="map-pin"></i>${esc(t.training.inperson)}</span>`+[["ar","العربية"],["fr","Français"],["en","English"],["it","Italiano"]].map(([c,n])=>`<span lang="${c}">${flag(c,20)}${n}</span>`).join("");
+  {const k=PROJECTS.findIndex(p=>p.cat==="_train");document.getElementById("train-gal").innerHTML=TRAIN.map((t,g)=>{const st=TRAIN_FLAT.findIndex(x=>x.g===g),cap=esc(t.c[lang]),im=`<img src="img/train-${t.i[0]}.jpg" alt="${cap}" loading="lazy">`,cnt=t.i.length>1?`<b class="trn"><i data-lucide="images"></i>${t.i.length}</b>`:"";return t.link?`<a class="trp" href="${t.link}" target="_blank" rel="noopener noreferrer" aria-label="${cap} · LinkedIn">${im}<i class="trli" data-lucide="linkedin"></i><span>${cap}</span></a>`:`<button type="button" class="trp" data-tg="${st}" aria-label="${cap}">${im}${cnt}<span>${cap}</span></button>`}).join("");document.querySelectorAll("button.trp").forEach(b=>b.onclick=()=>openLB(k,+b.dataset.tg))}
+  document.querySelectorAll(".pf").forEach(el=>el.innerHTML=flag("mz",30)+flag("it",30));
+  renderLang();renderTheme();icons();observe();
+}
+function icons(){if(window.lucide)lucide.createIcons();}
+let io;
+function observe(){
+  if(!io)io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{rootMargin:"-60px"});
+  document.querySelectorAll(".reveal:not(.in)").forEach(el=>io.observe(el));
+}
+/* count-up */
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;so.disconnect();
+  document.getElementById("stats-grid").classList.add("in");
+  
+  document.querySelectorAll(".num").forEach(n=>{const to=+n.dataset.to,suf=n.dataset.suf;let c=0,st=to/60;const tm=setInterval(()=>{c+=st;if(c>=to){n.textContent=to+suf;clearInterval(tm)}else n.textContent=Math.floor(c)+suf},2000/60)});
+}),{rootMargin:"-100px"});
+so.observe(document.getElementById("stats-grid"));
+/* particles */
+const _pt=document.getElementById("particles");if(_pt)_pt.innerHTML=Array.from({length:20},()=>`<div class="particle" style="left:${Math.random()*100}%;top:${Math.random()*100}%;animation-duration:${3+Math.random()*2}s;animation-delay:${Math.random()*2}s"></div>`).join("");
+/* nav */
+const nav=document.getElementById("nav"),secs=["s-services","s-projects","s-experience","s-contact"];
+addEventListener("scroll",()=>{nav.classList.toggle("scrolled",scrollY>50);let act="";for(const s of [...secs].reverse()){const el=document.getElementById(s);if(el&&scrollY>=el.offsetTop-200){act=s;break}}document.querySelectorAll(".links .nl").forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+act))},{passive:true});
+{const fab=document.getElementById("fab"),ct=document.getElementById("s-contact");const fu=()=>{const r=ct.getBoundingClientRect();fab.classList.toggle("show",scrollY>600&&r.top>innerHeight*.6)};addEventListener("scroll",fu,{passive:true});fu()}
+const burger=document.getElementById("burger"),mm=document.getElementById("mobmenu");
+burger.onclick=()=>{const o=mm.classList.toggle("open");burger.setAttribute("aria-expanded",o);burger.innerHTML=`<i data-lucide="${o?"x":"menu"}"></i>`;icons()};
+mm.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{mm.classList.remove("open");burger.innerHTML='<i data-lucide="menu"></i>';icons()}));
+document.addEventListener("click",()=>document.querySelectorAll(".langmenu").forEach(m=>m.classList.remove("open")));
+/* services → accounts / filtered projects */
+function goService(k){if(k==="training"){document.getElementById("s-training").scrollIntoView({behavior:"smooth"});return}const c=SVC_TARGET[k];if(!c){document.getElementById("s-accounts").scrollIntoView({behavior:"smooth"});return}
+ if(PROJECTS.some(p=>p.cat===c)&&cat!==c){cat=c;render()}document.getElementById("s-projects").scrollIntoView({behavior:"smooth"})}
+/* lightbox */
+const lb=document.getElementById("lb");let lbP=0,lbI=0;
+function openLB(p,i){lbP=p;lbI=i;showLB();lb.classList.add("open");document.body.style.overflow="hidden";lb.querySelector(".lbx").focus()}
+function showLB(){const p=PROJECTS[lbP],g=p.gallery;lbI=(lbI+g.length)%g.length;lb.querySelector("img").src=g[lbI];lb.querySelector("img").alt=p.title[lang]+" "+(lbI+1);lb.querySelector(".lbt").textContent=p.title[lang];lb.querySelector(".lbc").textContent=(p.caps?p.caps[lbI][lang]+"  ·  ":"")+(lbI+1)+" / "+g.length;const d=lb.querySelector(".lbd"),ln=p.links&&p.links[lbI];d.style.display=(p.drive||ln)?"":"none";d.href=ln||p.drive||"#";d.textContent=ln?({it:"Vedi su LinkedIn",fr:"Voir sur LinkedIn",en:"See on LinkedIn"})[lang]:(p.linkLabel||{it:"Vedi tutto su Drive",fr:"Tout voir sur Drive",en:"See all on Drive"})[lang];const pr=lb.querySelector(".lbpr");lb.classList.toggle("haspress",!!p.press);pr.innerHTML=p.press?`<span class="lbpt"><i data-lucide="newspaper"></i>${esc(PRESS.seen[lang])}</span>${PRESS.list.map(([c,n,u])=>`<a href="${u}" target="_blank" rel="noopener noreferrer">${flag(c,16)}${esc(n)}</a>`).join("")}<span class="lbpm">${esc(PRESS.more[lang])}</span>`:"";if(p.press)icons()}
+function closeLB(){lb.classList.remove("open");document.body.style.overflow=""}
+lb.querySelector(".lbx").onclick=closeLB;lb.querySelector(".lbp").onclick=()=>{lbI--;showLB()};lb.querySelector(".lbn").onclick=()=>{lbI++;showLB()};
+lb.onclick=e=>{if(e.target===lb)closeLB()};
+lb.onkeydown=e=>{if(e.key==="Escape")closeLB();if(e.key==="ArrowLeft"){lbI--;showLB()}if(e.key==="ArrowRight"){lbI++;showLB()}};
+document.addEventListener("click",e=>{if(!e.target.closest("[data-press]"))return;e.preventDefault();e.stopImmediatePropagation();if(cat!=="Photography"){cat="Photography";render()}const k=PROJECTS.findIndex(p=>p.press);document.getElementById("s-projects").scrollIntoView({behavior:"smooth"});setTimeout(()=>openLB(k,0),700)},true);
+/* in-page links: scroll without changing the URL hash (so shared links always open at the top) */
+document.addEventListener("click",e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const id=a.getAttribute("href").slice(1);const t=id?document.getElementById(id):null;e.preventDefault();(t||document.body).scrollIntoView({behavior:"smooth"});if(!t)window.scrollTo({top:0,behavior:"smooth"});mm.classList.remove("open")});
+if("scrollRestoration" in history)history.scrollRestoration="manual";
+const toTop=()=>{try{window.scrollTo(0,0);document.documentElement.scrollTop=0;document.body.scrollTop=0}catch(e){}};
+toTop();addEventListener("DOMContentLoaded",toTop);addEventListener("load",()=>{toTop();setTimeout(toTop,50);setTimeout(toTop,400)});
+addEventListener("hashchange",e=>{if(!document.getElementById(location.hash.slice(1)))toTop()});
+
+window.scrollTo(0,0);
+/* play the name reveal once on load (useful on touch screens) */
+(()=>{const b=document.querySelector(".nz-anim");if(!b||matchMedia("(prefers-reduced-motion: reduce)").matches)return;setTimeout(()=>b.classList.add("play"),900);setTimeout(()=>b.classList.remove("play"),3200);b.addEventListener("touchstart",()=>{b.classList.add("play");setTimeout(()=>b.classList.remove("play"),2200)},{passive:true})})();
+document.getElementById("yr").textContent=new Date().getFullYear();
+document.querySelectorAll(".langs [data-f]").forEach(s=>s.insertAdjacentHTML("afterbegin",flag(s.dataset.f,20)));
+render();
+</script>
+</body>
+</html>
